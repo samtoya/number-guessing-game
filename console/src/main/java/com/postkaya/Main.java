@@ -1,5 +1,6 @@
 package com.postkaya;
 
+import com.postkaya.config.GameConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -13,7 +14,7 @@ public class Main {
 
         // Create context
         ConfigurableApplicationContext context =
-                new AnnotationConfigApplicationContext(AppConfig.class);
+                new AnnotationConfigApplicationContext(GameConfig.class);
 
         // Get the number generator bean from context (container)
         NumberGenerator numberGenerator

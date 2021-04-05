@@ -3,16 +3,19 @@ package com.postkaya;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Component
 public class MessageGeneratorImpl implements MessageGenerator {
     private static final Logger log = LoggerFactory.getLogger(MessageGeneratorImpl.class);
+    private final Game game;
 
     @Autowired
-    public Game game;
-
-    int guessCount = 10;
+    public MessageGeneratorImpl(Game game) {
+        this.game = game;
+    }
 
     @PostConstruct
     public void init() {
@@ -42,7 +45,7 @@ public class MessageGeneratorImpl implements MessageGenerator {
             return "Invalid number range!";
         }
 
-        if (game.getRemainingGuesses() == guessCount) {
+        if (game.getRemainingGuesses() == game.getGuessCount()) {
             return "What is your first guess?";
         }
 

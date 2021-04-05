@@ -12,12 +12,14 @@ import java.util.Scanner;
 @Component
 public class ConsoleNumberGuess {
     private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
+    private final MessageGenerator messageGenerator;
+    private final Game game;
 
     @Autowired
-    private MessageGenerator messageGenerator;
-
-    @Autowired
-    private Game game;
+    public ConsoleNumberGuess(MessageGenerator messageGenerator, Game game) {
+        this.messageGenerator = messageGenerator;
+        this.game = game;
+    }
 
     @EventListener(ContextRefreshedEvent.class)
     public void start(ContextRefreshedEvent event) {

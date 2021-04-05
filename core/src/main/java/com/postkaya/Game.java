@@ -1,6 +1,6 @@
 package com.postkaya;
 
-interface Game {
+public interface Game {
     int getNumber();
 
     int getGuess();
@@ -12,6 +12,8 @@ interface Game {
     int getBiggest();
 
     int getRemainingGuesses();
+
+    int getGuessCount();
 
     void reset();
 
